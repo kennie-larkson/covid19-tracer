@@ -1,28 +1,33 @@
-import { json, response } from "express";
+// import { json, response } from "express";
 
 
-const loadApp=()=>{
-    let element, attached ;
-    const create = (ele)=>{
-         element = document.createElement(ele);
-        return element
-    }
-    const addEleToBody = (element)=>{
-         attached = document.body.append(element);
-        return attached
-    }
+const loadApp= async()=>{
+    // let element, attached ;
+    // const create = (ele)=>{
+    //      element = document.createElement(ele);
+    //     return element
+    // }
+    // const addEleToBody = (element)=>{
+    //      attached = document.body.append(element);
+    //     return attached
+    // }
 
-    create('p')
-    addEleToBody(element)
-    element.textContent = 'Here\'s #COVID19...'
+    // create('p')
+    // addEleToBody(element)
+    // element.textContent = 'Here\'s #COVID19...'
 
- fetch('http://localhost:4040').then(console.log(response)).catch((err)=>{console.log(err)})
+ const response = await fetch('http://localhost:4040')
+ const json = await response.json()
+ console.log(json)
+ .then(console.log('fetch successful'))
+ .catch((err)=>{console.log(err)})
     
 }
 
+loadApp()
 
 
- document.addEventListener('DOMContentLoaded', loadApp)
+//  document.addEventListener('DOMContentLoaded', loadApp)
 
 
 

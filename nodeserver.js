@@ -27,16 +27,8 @@ app.get('/', async (req,res)=>{
          console.log(json)
         
          res.send(json)
-        //  console.log(data)
-        
-        // const data = json
 
-        //sending the retrieved api data to the client side of this application
         
-        fetch('http://localhost:4040',{method:"POST",json})
-        .then(console.log('Response sent to client'))
-        .catch(console.log('There was an error sending response'))
-           
     } catch (error) {
         console.log(error)
         console.log('Oops! Something is amiss...')
