@@ -1,3 +1,4 @@
+import { json } from "express";
 
 
 const loadApp=()=>{
@@ -15,7 +16,7 @@ const loadApp=()=>{
     addEleToBody(element)
     element.textContent = 'Here\'s #COVID19...'
 
- fetch('/')
+ fetch('/').then(console.log(json))
     
 }
 
