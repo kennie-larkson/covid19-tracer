@@ -25,12 +25,15 @@ app.get('/', async (req,res)=>{
         const response = await fetch("https://covid-19-data.p.rapidapi.com/totals",api_options)
         const json = await response.json()
          console.log(json)
-        res.send(json)
-        const data = json
+        
+         res.send(json)
+        //  console.log(data)
+        
+        // const data = json
 
         //sending the retrieved api data to the client side of this application
         
-        fetch('/',{method:'POST', message: data})
+        fetch('http://localhost:4040',{method:"POST",json})
         .then(console.log('Response sent to client'))
         .catch(console.log('There was an error sending response'))
            

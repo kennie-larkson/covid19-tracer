@@ -1,4 +1,4 @@
-import { json } from "express";
+import { json, response } from "express";
 
 
 const loadApp=()=>{
@@ -16,7 +16,7 @@ const loadApp=()=>{
     addEleToBody(element)
     element.textContent = 'Here\'s #COVID19...'
 
- fetch('/').then(console.log(json))
+ fetch('http://localhost:4040').then(console.log(response)).catch((err)=>{console.log(err)})
     
 }
 
