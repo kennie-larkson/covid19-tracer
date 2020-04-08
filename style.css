@@ -1,11 +1,15 @@
 body{
     
-    background-color: whitesmoke;
+    /* position: static; */
+    
+    background-color: cadetblue;
+    color: whitesmoke;
+    /* opacity: 2; */
     display: flex;
     flex-direction: column;
-    /* background-image: url("covid19Img.jpg"); */
 }
 nav{
+
     display: flex;
     background-color: teal;
     opacity: 1;
@@ -37,7 +41,7 @@ li{ display: inline;
     border: 0px;
 }
 
-a{
+li a{
     text-decoration: none;
     color: mintcream;
     background-color: yellowgreen;
@@ -45,14 +49,10 @@ a{
     border: 0px;
     border-radius: 10px;
     
+    
 
 }
-/* #covid_img{
-    background-color: navy;
-    opacity: 0.5;
-    width: 20%;
-    border-radius: 50%;
-} */
+
 img{
     border-radius: 100%;
     width: 50px;
@@ -62,22 +62,37 @@ h1{
     margin-top: 0;
     
 }
+.intro{
+    margin-top: 2em;
+    line-height: 2;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 20px;
+}
+.main_container{
+    display: flex;
+    padding: 1em;
+    margin-bottom: 2em;
+}
 
+article{
+    font-size: 20px;
+    line-height: 2;
+}
 .container{
     display: grid;
-    /* create two rows of width200px and 150px each and auto column  */
-    /* grid: 200px 150px / auto auto; */
     grid-template-columns: 1fr 1fr;
-    grid-row-gap: 2em;
-    grid-column-gap: 2em;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
     justify-content: center;
-    margin-top: 5em;
+    margin-top: 2em;
     height: auto;
     font-size: 30px;
     line-height: 2;
-    /* align-items: center; */
+    width: 70%;
     
-    
+  
+  
 }
 
 #total_cases{
@@ -87,6 +102,9 @@ h1{
     border-radius: 1em;
     justify-content: center;
     height: 10em;
+    margin-left: 2em;
+    color: black;
+    padding: 1em;
 }
 #recoveries{
     display: flex;
@@ -94,6 +112,8 @@ h1{
     align-items: center;
     border-radius: 1em;
     justify-content: center;
+    margin-left: 2em;
+    padding: 1em;
     
 }
 #critical{
@@ -103,6 +123,8 @@ h1{
     border-radius: 1em;
     justify-content: center;
     height: 10em;
+    margin-left: 2em;
+    padding: 1em;
     
 }
 #deaths{
@@ -111,21 +133,166 @@ h1{
     align-items: center;
     border-radius: 1em;
     justify-content: center;
+    margin-left: 2em;
+    padding: 1em;
+}
+[id ^='figures']{
+    background-color: white;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 5px;
+}
+#note{
+    /* margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em; */
+    margin: 2em;
+    font-size: 20px;
+    line-height: 2;
 }
 footer{
     display: flex;
     background-color: teal;
-    margin-top: 10em;
+    /* margin-top: 10em; */
     height: 5em;
     align-items: center;
     justify-content: center;
     font-size: 20px;
+    margin-bottom: 0;
+
 }
 
 /* set break point  */
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+    nav{
+    
+        display: flex;
+        background-color: teal;
+        opacity: 1;
+        margin-top: 0;
+        width: auto;
+        padding: 0.2em;
+        align-items: center;
+        justify-content: space-between;
+    
+    }
+    #nav_logo{
+        display: flex;
+        font-size: 12px;
+        color: maroon;
+    
+    }
+    #nav_links{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 0.5em;
+        margin-right: 0.5em;
+    }
+    ul{
+      list-style-type: none; 
+    }
+    li{ display: inline;
+        padding: 0.2em;
+        border: 0px;
+    }
+    
+    li a{
+        text-decoration: none;
+        color: mintcream;
+        background-color: yellowgreen;
+        padding: 2px;
+        border: 0px;
+        border-radius: 5px;
+        
+    
+    }
+    
+    img{
+        border-radius: 100%;
+        width: 20px;
+    }
+    
+    h1{
+        margin-top: 0;
+        
+    }
+    .intro{
+        margin-top: 0.5em;
+        /* line-height: 2; */
+        margin-left: 0.5em;
+        font-size: 12px;
+    }
+    
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 0.5em;
+        grid-column-gap: 0.5em;
+        justify-content: center;
+        margin-top: 0.5em;
+        height: auto;
+        font-size: 12px;
+        /* line-height: 2; */
+      
+      
+    }
+    
+    #total_cases{
+        display: flex;
+        align-items: center;
+        background-color: yellow;
+        border-radius: 1em;
+        justify-content: center;
+        height: 5em;
+    }
+    #recoveries{
+        display: flex;
+        background-color: limegreen;
+        align-items: center;
+        border-radius: 0.5em;
+        justify-content: center;
+        
+    }
+    #critical{
+        display: flex;
+        background-color: maroon;
+        align-items: center;
+        border-radius: 0.5em;
+        justify-content: center;
+        height: 5em;
+        
+    }
+    #deaths{
+        display: flex;
+        background-color: red;
+        align-items: center;
+        border-radius: 0.5em;
+        justify-content: center;
+    }
+    [id ^='figures']{
+        background-color: white;
+        border: 1px thin black;
+        border-radius: 5px;
+        padding: 2px;
+    }
+    #note{
+        margin-top: 0.5em;
+        font-size: 12px;
+        /* line-height: 2; */
+    }
+    footer{
+        display: flex;
+        background-color: teal;
+        margin-top: 5em;
+        height: 2em;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}

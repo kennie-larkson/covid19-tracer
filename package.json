@@ -1,17 +1,18 @@
 {
   "name": "covid19-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Tracking covid19 data from around the world",
+  "main": "nodeserver.js",
   "scripts": {
+    "start": " node nodeserver.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kennie-larkson/covid19-traced.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node.js","express 4.0","node-fetch"],
+  "author": "Lawal, Abdulrafiu Kehinde",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kennie-larkson/covid19-traced/issues"

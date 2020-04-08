@@ -16,16 +16,20 @@ const fetchAPI= async()=>{
     
     var api_options = {
         
-        "headers": {
+        headers: {
+            
             "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
             "x-rapidapi-key": "29061a518fmsh604f7cc8ee3b318p151f11jsne9bd5f17246b"
         }
+        
+        
     };
     try {
         //retrieving the data from the api server/endpoint
         const response = await fetch("https://covid-19-data.p.rapidapi.com/totals",api_options)
     //converting the api response to json format
         const json = await response.json()
+        console.log(json)
     //iterating through the array of objects in the json data using for...of
     
         for(const ele of json){

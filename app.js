@@ -9,31 +9,20 @@ const fetchBackend = async()=>{
         // console.log(json)
         //iterate through each element of the array
     for (const ele of json){
-        //target the html div element with class 'container'
-        // const container = document.querySelector('.container')
-        // container.innerHTML = `${datastring}`
-        //set the contents of the target div using es6 template literal and interpolation syntax
-        //  container.innerHTML = `
-        //         Total Confirmed: ${ele.confirmed_cases}
-        //         Recovered: ${ele.recoveries}
-        //         Critical:${ele.critical_cases}
-        //         Total Deaths: ${ele.death_cases}
-        //     ` 
-            const cases = document.getElementById('total_cases')
-            cases.innerHTML= `WORLD REPORTED CASES <br>
+        //target the html div elements with and setting their contents
+    
+            const cases = document.getElementById('figures_cases')
+            cases.innerHTML= ` 
                                 ${ele.confirmed_cases}
                                 `
-            const recovered = document.getElementById('recoveries')
-            recovered.innerHTML = `WORLD REPORTED RECOVERIES <br>
-                                    ${ele.recoveries} 
+            const recovered = document.getElementById('figures_recoveries')
+            recovered.innerHTML = ` ${ele.recoveries} 
                                     `
-            const critical = document.getElementById('critical')
-            critical.innerHTML = `WORLD REPORTED CRITICAL<br>
-                                    ${ele.critical_cases}
+            const critical = document.getElementById('figures_critical')
+            critical.innerHTML = `${ele.critical_cases}
                                     `
-            const deaths = document.getElementById('deaths')
-            deaths.innerHTML = `WORLD REPORTED DEATHS <br>
-                                ${ele.death_cases}
+            const deaths = document.getElementById('figures_deaths')
+            deaths.innerHTML = ` ${ele.death_cases}
                                 `
     }
 }
