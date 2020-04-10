@@ -38,7 +38,8 @@ fetchBackend()
 }
 
 //add event listener to run the loadApp method once the weppage is refreshed/ browser is opened
- document.addEventListener('DOMContentLoaded', loadApp)
+//  document.addEventListener('DOMContentLoaded', loadApp)
+loadApp()
 
 
 

@@ -11,7 +11,8 @@ const app = express();
 //Bring in the CORS library
 app.use(corslib({ methods: "GET, POST"}));
 
-let data =[] ,datastring
+let apidata =[] ;
+// datastring
 const fetchAPI= async()=>{
     
     var api_options = {
@@ -29,18 +30,13 @@ const fetchAPI= async()=>{
         const response = await fetch("https://covid-19-data.p.rapidapi.com/totals",api_options)
     //converting the api response to json format
         const json = await response.json()
-        console.log(json)
+        const data = json
+        console.log(data)
     //iterating through the array of objects in the json data using for...of
     
-        for(const ele of json){
-            datastring = `
-            Total Confirmed: ${ele.confirmed}
-            Recovered: ${ele.recovered}
-            Critical:${ele.critical}
-            Total Deaths: ${ele.deaths}`
-            console.log(datastring);
-
-            data.push({
+        for(const ele of data){
+        
+            apidata.push({
             "confirmed_cases":ele.confirmed,
             "recoveries":ele.recovered,
             "critical_cases":ele.critical,
@@ -53,12 +49,12 @@ const fetchAPI= async()=>{
         console.log('Oops! Something is amiss...')
     }
 }
+fetchAPI()
 
-
-app.get('/', async (req,res)=>{
-    fetchAPI()
+app.get('/', (req,res)=>{
+    // fetchAPI()
     
-    res.send(data)
+    res.send(apidata)
     
 })
 
