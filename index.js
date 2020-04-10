@@ -2,7 +2,10 @@ const express = require('express')
 const fetch = require('node-fetch')
 const body_parser = require('body-parser')
 const corslib = require('cors')
+let port = process.env.PORT
 const app = express();
+
+if(port == null || port == ""){ port = 8000}
 
 // app.use(express.static('public'))
 // app.use(body_parser.urlencoded({extended : true}))
@@ -58,6 +61,6 @@ app.get('/', (req,res)=>{
     
 })
 
-app.listen(4040,()=>{
-    console.log('Server running on port: 4040...')
+app.listen(port,()=>{
+    console.log(`Server running on port: ${port}...`)
 })

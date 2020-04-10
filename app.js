@@ -3,7 +3,7 @@ const fetchBackend = async()=>{
     
     try{
         //request the data from the backend using fetch
-        const response = await fetch('http://localhost:4040',{method:'GET',headers:{'Access-Control-Allow-Origin':'*'}})
+        const response = await fetch('http://localhost:8000',{method:'GET',headers:{'Access-Control-Allow-Origin':'*'}})
         //ensure the response is in JSON format i.e an array of JSON object ( json = [{"key":"value"}])
         const json = await response.json()
         // console.log(json)
