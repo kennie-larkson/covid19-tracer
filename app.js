@@ -6,9 +6,10 @@ const fetchBackend = async()=>{
         const response = await fetch('http://localhost:8000',{method:'GET',headers:{'Access-Control-Allow-Origin':'*'}})
         //ensure the response is in JSON format i.e an array of JSON object ( json = [{"key":"value"}])
         const json = await response.json()
-        // console.log(json)
+        const data = json
+        console.log(data)
         //iterate through each element of the array
-    for (const ele of json){
+    for (const ele of data){
         //target the html div elements with and setting their contents
     
             const cases = document.getElementById('figures_cases')
