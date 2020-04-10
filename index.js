@@ -54,7 +54,7 @@ fetchAPI()
 app.get('/', (req,res)=>{
     // fetchAPI()
     
-    res.status(200).send(apidata)
+    res.send(apidata)
     
 })
 
