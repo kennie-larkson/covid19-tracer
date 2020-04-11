@@ -12,9 +12,14 @@ if(port == null || port == ""){ port = 8000}
 // app.use(body_parser.json())
 
 //Bring in the CORS library
+// app.use(express.static('public'))
+// app.use(express.static('style'))
+// app.use(express.static('images'))
+// app.use(express.static('src'))
+app.use(express.json({limit: '1mb'}))
 app.use(corslib({ methods: "GET, POST"}));
 
-let apidata =[] ;
+let json ;
 // datastring
 const fetchAPI= async()=>{
     
@@ -32,20 +37,22 @@ const fetchAPI= async()=>{
         //retrieving the data from the api server/endpoint
         const response = await fetch("https://covid-19-data.p.rapidapi.com/totals",api_options)
     //converting the api response to json format
-        const json = await response.json()
-        const data = json
-        console.log(data)
+    console.log(response.headers)
+         json = await response.json()
+        // const data = json
+        console.log(json)
     //iterating through the array of objects in the json data using for...of
+    json.map(ele=>{
+        // console.log(ele.confirmed)
+        const confirmed_cases = ele.confirmed;
+        const recoveries = ele.recovered;
+        const critical_cases = ele.critical;
+        const deaths = ele.deaths
+        console.log('confirmed cases: '+ confirmed_cases+'\n'+
+        'recoveries: '+recoveries+'\n'+'critical cases: '+critical_cases+'\n'+'deaths: '+deaths)
+    })
     
-        for(const ele of data){
-        
-            apidata.push({
-            "confirmed_cases":ele.confirmed,
-            "recoveries":ele.recovered,
-            "critical_cases":ele.critical,
-            "death_cases":ele.deaths})
-            
-        }
+       
         
     } catch (error) {
         console.log(error)
@@ -56,8 +63,11 @@ fetchAPI()
 
 app.get('/', (req,res)=>{
     // fetchAPI()
+    res.setHeader('Access-Control-Allow-Origin','*')
+    res.json(json)
+    // res.header({'Access-Control-Allow-Origin':'*'})
+    // res.send('')
     
-    res.send( apidata)
     
 })
 

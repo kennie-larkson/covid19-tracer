@@ -3,27 +3,27 @@ const fetchBackend = async()=>{
     
     try{
         //request the data from the backend using fetch
-        const response = await fetch('http://localhost:8000',{method:'GET',headers:{'Access-Control-Allow-Origin':'*'}})
+        const response = await fetch('http://localhost:8000',{method:'GET'})
         //ensure the response is in JSON format i.e an array of JSON object ( json = [{"key":"value"}])
         const json = await response.json()
-        const data = json
-        console.log(data)
+        // const data = json
+        console.log(json)
         //iterate through each element of the array
-    for (const ele of data){
+    for (const ele of json){
         //target the html div elements with and setting their contents
     
             const cases = document.getElementById('figures_cases')
             cases.innerHTML= ` 
-                                ${ele.confirmed_cases}
+                                ${ele.confirmed}
                                 `
             const recovered = document.getElementById('figures_recoveries')
-            recovered.innerHTML = ` ${ele.recoveries} 
+            recovered.innerHTML = ` ${ele.recovered} 
                                     `
             const critical = document.getElementById('figures_critical')
-            critical.innerHTML = `${ele.critical_cases}
+            critical.innerHTML = `${ele.critical}
                                     `
             const deaths = document.getElementById('figures_deaths')
-            deaths.innerHTML = ` ${ele.death_cases}
+            deaths.innerHTML = ` ${ele.deaths}
                                 `
     }
 }
@@ -39,8 +39,8 @@ fetchBackend()
 }
 
 //add event listener to run the loadApp method once the weppage is refreshed/ browser is opened
-//  document.addEventListener('DOMContentLoaded', loadApp)
-loadApp()
+ document.addEventListener('DOMContentLoaded', loadApp)
+// loadApp()
 
 
 
